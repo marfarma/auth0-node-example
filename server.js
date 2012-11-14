@@ -11,9 +11,11 @@ app.configure(function () {
   this.use(express.logger());
   this.use(express.cookieParser());
   this.use(express.bodyParser());
+  this.use(express.session({ secret: 'string' }));
+  
   this.use(passport.initialize());
   this.use(passport.session());
-  this.use(express.session({ secret: 'string' }));
+  
   this.use(express.static(__dirname + '/public'));
   this.use(app.router);
   this.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
