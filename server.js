@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
   console.log('GET INDEX.. user is', req.user);
   res.render("index", {
     user: req.user || null,
-    connections: [] || process.env.connections.split(',')
+    connections: process.env.connections.split(',')
   });
 });
 
@@ -57,10 +57,10 @@ app.get('/logout', function(req, res){
 // app.get('/login', passport.authenticate('auth10', {connection: 'google'}), function (req, res) {
 
 app.get('/login', function (req, res, next) {
-  if(!req.query.connection){
-    return res.send(500, "missing connection query string");
+  if(!req.query.using){
+    return res.send(500, "missing using query string");
   }
-  return passport.authenticate('auth10', {connection: req.query.connection})(req, res, next);
+  return passport.authenticate('auth10', {connection: req.query.using})(req, res, next);
 }, function (req, res) {
   res.redirect("/");
 });
