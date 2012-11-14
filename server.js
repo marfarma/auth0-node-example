@@ -20,6 +20,7 @@ app.configure(function () {
 });
 
 app.get('/', function (req, res) {
+  console.log('GET INDEX.. user is', req.user);
   res.render("index", {
     user: req.user || null
   });
