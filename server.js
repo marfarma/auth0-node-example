@@ -38,6 +38,11 @@ app.get('/callback',
   }
 );
 
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 app.get('/login', passport.authenticate('auth10', {connection: 'google'}), function (req, res) {
   res.redirect("/");
 });
