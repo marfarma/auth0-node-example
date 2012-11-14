@@ -22,9 +22,5 @@
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
-  },
-  "authKeys": {
-    "clientId": "FlEIhZXSnwUFM98VfG8avyPpAsicuHCk",
-    "clientSecret": "aysgdohihoid01239ud012no"
   }
 }

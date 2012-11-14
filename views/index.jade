@@ -12,10 +12,13 @@ html
         h2 intro
         p This is an example application for the Auth0 platform.
         if user
-          p hello #{user.nickname}. 
+          p hello #{user.name}. 
           p It seems that you logged in using #{user.provider}
           p 
             a(href='/logout') logout
         else
-          p click here to login 
-            a(href='/login') login
+          p Login using one of these connections
+          ul 
+          for connection in connections
+            li 
+              a(href='/login?using=' + connection) #{connection}

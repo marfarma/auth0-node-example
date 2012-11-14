@@ -4,6 +4,15 @@ var express = require('express'),
 //setup passport
 require('./lib/setup-passport');
 
+if(!process.env.connections){
+  console.log('you need to set the "connections" environment variable, comma separated');
+  process.exit(1);
+}
+
+var connections = process.env.connections.split(','),
+  clientId = process.env.clientId,
+  clientSecret = process.env.clientSecret;
+
 var app = express();
 
 app.configure(function () {
@@ -24,7 +33,8 @@ app.configure(function () {
 app.get('/', function (req, res) {
   console.log('GET INDEX.. user is', req.user);
   res.render("index", {
-    user: req.user || null
+    user: req.user || null,
+    connections: [] || process.env.connections.split(',')
   });
 });
 
@@ -43,7 +53,15 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-app.get('/login', passport.authenticate('auth10', {connection: 'google'}), function (req, res) {
+// a simple example will be
+// app.get('/login', passport.authenticate('auth10', {connection: 'google'}), function (req, res) {
+
+app.get('/login', function (req, res, next) {
+  if(!req.query.connection){
+    return res.send(500, "missing connection query string");
+  }
+  return passport.authenticate('auth10', {connection: req.query.connection})(req, res, next);
+}, function (req, res) {
   res.redirect("/");
 });
 
