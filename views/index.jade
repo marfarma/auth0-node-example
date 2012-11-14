@@ -12,8 +12,12 @@ html
         h2 intro
         p This is an example application for the Auth0 platform.
         if user
-          p hello #{user.name}. 
-          p It seems that you logged in using #{user.provider}
+          p hello 
+            strong #{user.name}
+            | . 
+          p It seems that you logged in using 
+            strong #{user.provider}
+            |.
           p 
             a(href='/logout') logout
         else
