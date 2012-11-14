@@ -1,0 +1,18 @@
+!!! 5
+html
+  head
+    title Auth0 Example Application
+    link(type='text/css', rel='stylesheet', href='/css/site.css')
+  body
+    header
+      h1
+        | Auth0 Example Application
+    .main
+      section
+        h2 intro
+        p This is an example application for the Auth0 platform.
+        if user
+          p hello #{user.nickname} 
+        else
+          p click here to login 
+            a(href='/login') login
