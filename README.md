@@ -15,3 +15,8 @@ Install dependencies with:
 Then run with:
 
 	npm start
+
+
+## Running example in heroku
+
+There is a running example in heroku here <http://frozen-dawn-4312.herokuapp.com/>
