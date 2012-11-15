@@ -1,6 +1,7 @@
 var express = require('express'), 
   passport = require('passport');
 
+
 //setup passport
 require('./lib/setup-passport');
 
@@ -9,11 +10,9 @@ if(!process.env.connections){
   process.exit(1);
 }
 
-var connections = process.env.connections.split(','),
-  clientId = process.env.clientId,
-  clientSecret = process.env.clientSecret;
-
-var app = express();
+var app = express(),
+  port = process.env.PORT || 9988;
+  homeUrl = process.env.domain ? 'http://' + process.env.domain : 'http://localhost:' + port;
 
 app.configure(function () {
   this.set('view engine', 'jade');
@@ -49,8 +48,7 @@ app.get('/callback',
 );
 
 app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+  req.logout(res, homeUrl);
 });
 
 // a simple example will be
@@ -65,4 +63,4 @@ app.get('/login', function (req, res, next) {
   res.redirect("/");
 });
 
-app.listen(process.env.PORT || 9988);
+app.listen(port);

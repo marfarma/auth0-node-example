@@ -4,7 +4,15 @@ This is a node.js example application for the auth0 platform.
 
 First create an account in [auth0](http://auth0.com) and create an application with the url of this application plus the callback, for instance <http://localhost:9988/callback>
 
-Then copy the secret ClientId and ClientSecret in the ```package.json``` file.
+In order to run this application you will need at least 3 environment variables:
+
+-   clientId
+-   clientSecret
+-   connections (comma separated)
+
+You can run the application as follows: 
+
+	clientId=<your clientid> clientSecret=<your clientsecret> connections=<a connection> node server.js
 
 ## How to run it
 
