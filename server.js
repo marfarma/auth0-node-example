@@ -48,7 +48,8 @@ app.get('/callback',
 );
 
 app.get('/logout', function(req, res){
-  req.logout(res, homeUrl);
+  req.logout();
+  res.redirect('/');
 });
 
 // a simple example will be
