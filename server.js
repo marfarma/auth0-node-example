@@ -63,4 +63,6 @@ app.get('/login', function (req, res, next) {
   res.redirect("/");
 });
 
-app.listen(port);
+app.listen(port, function () {
+  console.log('listening in http://localhost:' + port);
+});
