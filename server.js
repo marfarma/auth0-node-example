@@ -3,7 +3,7 @@ var express = require('express'),
 
 
 //setup passport
-require('./lib/setup-passport');
+var strategy = require('./lib/setup-passport');
 
 if(!process.env.connections){
   console.log('you need to set the "connections" environment variable, comma separated');
@@ -30,10 +30,13 @@ app.configure(function () {
 });
 
 app.get('/', function (req, res) {
-  console.log('GET INDEX.. user is', req.user);
-  res.render("index", {
-    user: req.user || null,
-    connections: process.env.connections.split(',')
+  strategy.getConnectionList(function (err, connections) {
+    res.render("index", {
+      user: req.user || null,
+      connections: connections.map(function(c){
+        return c.name;
+      })
+    });
   });
 });
 
@@ -59,7 +62,7 @@ app.get('/login', function (req, res, next) {
   if(!req.query.using){
     return res.send(500, "missing using query string");
   }
-  return passport.authenticate('auth10', {connection: req.query.using})(req, res, next);
+  return passport.authenticate('auth10', { connection: req.query.using })(req, res, next);
 }, function (req, res) {
   res.redirect("/");
 });
