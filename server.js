@@ -31,12 +31,14 @@ app.configure(function () {
 
 app.get('/', function (req, res) {
   strategy.getConnectionList(function (err, connections) {
+    
     res.render("index", {
       user: req.user || null,
       connections: connections.map(function(c){
         return c.name;
       })
     });
+    
   });
 });
 
