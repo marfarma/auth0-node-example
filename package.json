@@ -17,8 +17,6 @@
     "jade": "~0.27.7",
     "express": "~3.0.3",
     "connect": "~2.7.0",
-    "randomstring": "~1.0.2",
-    "xtend": "~1.0.3",
     "passport-auth0": "http://bit.ly/passportauth0"
   },
   "engines": {

@@ -1,4 +1,6 @@
-This is a node.js example application for the auth0 platform.
+This is a node.js example application for the [auth0](http://auth0.com) platform.
+
+This example uses [passport.js](http://passportjs.org/) with the [passport-auth0](https://github.com/qraftlabs/passport-auth0) adapter.
 
 ## Install dependencies
 
@@ -10,12 +12,11 @@ Install dependencies with:
 
 First create an account in [auth0](http://auth0.com) and create an application with the url of this application plus the callback, for instance <http://localhost:9988/callback>
 
-In order to run this application you will need 4 environment variables:
+In order to run this application you will need 3 environment variables shown in the settings panel of auth0:
 
 -   clientId
 -   clientSecret
 -	namespace
--   connections (comma separated)
 
 You can run the application as follows: 
 
