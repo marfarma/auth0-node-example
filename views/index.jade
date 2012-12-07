@@ -26,15 +26,3 @@ html
           for connection in connections
             li 
               a(href='/login?using=' + connection) #{connection}
-      
-      section
-        h2 create a connection
-        p You can use auth0 API to create new connections.
-        p Try to create an Google OAuth2 connection here:
-
-        form(method='post', action='/connections')
-          input(type='text', placeholder='name', name='name')
-          input(type='text', placeholder='client id', name='client_id')
-          input(type='text', placeholder='client secret', name='client_secret')
-
-          input(type='submit')
