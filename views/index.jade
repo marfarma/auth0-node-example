@@ -16,7 +16,7 @@ html
             strong #{user.name}
             | . 
           p It seems that you logged in using 
-            strong #{user.provider}
+            strong #{user.identities[0].provider}
             |.
           p 
             a(href='/logout') logout
