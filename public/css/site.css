@@ -324,7 +324,6 @@ blockquote span {
   padding:9px;
   margin:16px;
   border:2px solid #fff;
-  -webkit-border-radius:30px;
   border-radius:30px;
   padding-top:22px
 }
@@ -335,5 +334,13 @@ a:hover .qraftlabs-sponsor {
 
 .others-users {
   list-style: none;
+}
+.others-users li {
   float: left;
+  padding: 10px;
+}
+
+.others-users li img {
+  border:2px dashed #63F800;
+  border-radius:5px;
 }
