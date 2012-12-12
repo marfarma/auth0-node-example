@@ -37,6 +37,8 @@ app.get('/', function (req, res) {
     auth0Client.getConnections(function (err, connections) {
       res.render("index", {
         user: null,
+        clientID: process.env.clientId,
+        namespace: process.env.namespace,
         connections: connections.map(function(c){
           return c.name;
         })

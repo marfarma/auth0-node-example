@@ -11,8 +11,18 @@ html
       section
         h2 auth0 sample application!
         p This is an example application for the Auth0 platform.
-        p Login using one of these connections
+        p Login using one of these connections in the list
+        
         ul 
         for connection in connections
           li 
             a(href='/login?using=' + connection) #{connection}
+
+       
+        p Alternatively you can use the auth0 login button
+        a.auth0-button(href='https://' + namespace + '/login?client=' + clientID, 
+              data-theme='default', 
+              data-title='Example Application',
+              data-strategy-button-template="connect with {name}", 
+              data-all-button-template="show all") connect
+        script(src='https://' + namespace + '/sdk.js#client=' + clientID)
