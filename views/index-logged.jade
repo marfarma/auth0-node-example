@@ -27,4 +27,7 @@ html
         ul.others-users
           for user in others
             li
-              img(src=user.picture || 'https://ssl.gstatic.com/s2/profiles/images/silhouette80.png', style='width: 75px;', title=user.name)
+              img(
+                  src=user.picture || 'https://ssl.gstatic.com/s2/profiles/images/silhouette80.png', 
+                  style='width: 75px;', 
+                  title=user.name + ' (' + user.email + ')')
