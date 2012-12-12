@@ -332,3 +332,8 @@ blockquote span {
 a:hover .qraftlabs-sponsor {
   border:2px inset #8aca5a
 }
+
+.others-users {
+  list-style: none;
+  float: left;
+}

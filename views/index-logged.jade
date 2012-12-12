@@ -1,0 +1,30 @@
+!!! 5
+html
+  head
+    title Auth0 Example Application
+    link(type='text/css', rel='stylesheet', href='/css/site.css')
+  body
+    header
+      h1
+        | Auth0 Example Application
+    .main
+      section
+        h2 auth0 - is amazing!
+        p hello 
+          strong #{user.name}
+          | . 
+        p It seems that you logged in using 
+          strong #{user.identities[0].provider} 
+          | with the connection 
+          strong #{user.identities[0].connection}
+          |.
+        img(src=user.picture, style='width: 75px;')
+        p 
+          a(href='/logout') logout
+      
+      section
+        h2 other users logged in with this connection
+        ul.others-users
+          for user in others
+            li
+              img(src=user.picture, style='width: 75px;', title=user.name)

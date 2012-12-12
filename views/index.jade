@@ -9,21 +9,10 @@ html
         | Auth0 Example Application
     .main
       section
-        h2 auth0 - is amazing!
+        h2 auth0 sample application!
         p This is an example application for the Auth0 platform.
-        if user
-          p hello 
-            strong #{user.name}
-            | . 
-          p It seems that you logged in using 
-            strong #{user.identities[0].provider}
-            |.
-          img(src='#{user.picture}', style='width: 75px;')
-          p 
-            a(href='/logout') logout
-        else
-          p Login using one of these connections
-          ul 
-          for connection in connections
-            li 
-              a(href='/login?using=' + connection) #{connection}
+        p Login using one of these connections
+        ul 
+        for connection in connections
+          li 
+            a(href='/login?using=' + connection) #{connection}

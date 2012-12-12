@@ -3,11 +3,19 @@ var express = require('express'),
 
 
 //setup passport
-var strategy = require('./lib/setup-passport');
+require('./lib/setup-passport');
 
 var app = express(),
   port = process.env.PORT || 9988;
   homeUrl = process.env.domain ? 'http://' + process.env.domain : 'http://localhost:' + port;
+
+
+var Auth0     = require('auth0'),
+  auth0Client = new Auth0({
+    namespace:        process.env.namespace,
+    clientID:         process.env.clientId,
+    clientSecret:     process.env.clientSecret
+  });
 
 app.configure(function () {
   this.set('view engine', 'jade');
@@ -25,35 +33,27 @@ app.configure(function () {
 });
 
 app.get('/', function (req, res) {
-  strategy.getConnections(function (err, connections) {
-    
-    res.render("index", {
-      user: req.user || null,
-      connections: connections.map(function(c){
-        return c.name;
-      })
+  if (!req.user){
+    auth0Client.getConnections(function (err, connections) {
+      res.render("index", {
+        user: null,
+        connections: connections.map(function(c){
+          return c.name;
+        })
+      });
     });
-    
-  });
-});
-
-app.post('/connections', function (req, res, next) {
-  var connection = {
-    "name": req.body.name,
-    "strategy": "google-oauth2",
-    "options": {
-      "client_id": req.body.client_id,
-      "client_secret": req.body.client_secret,
-      "email": true, 
-      "profile": true
-    },
-    "status": 0
-  };
-
-  strategy.createConnection(connection, function (err) {
-    if(err) return next(err);
-    res.redirect('/');
-  });
+  } else {
+    auth0Client.getConnection(req.user.identities[0].connection, function (err, connection) {
+      if (err) return res.send(500, err);
+      connection.getUsers(function (err, others) {
+        if (err) return res.send(500, err);
+        res.render("index-logged", {
+          user: req.user,
+          others: others
+        });
+      });
+    });
+  }
 });
 
 app.get('/callback', 
