@@ -30,4 +30,4 @@ html
               img(
                   src=user.picture || 'https://ssl.gstatic.com/s2/profiles/images/silhouette80.png', 
                   style='width: 75px;', 
-                  title=user.name + ' (' + user.email + ')')
+                  title=user.name + ' (' + user.email + ') using ' + user.identities[0].connection)

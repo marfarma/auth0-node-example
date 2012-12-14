@@ -45,14 +45,11 @@ app.get('/', function (req, res) {
       });
     });
   } else {
-    auth0Client.getConnection(req.user.identities[0].connection, function (err, connection) {
+    auth0Client.getUsers(function (err, result) {
       if (err) return res.send(500, err);
-      connection.getUsers(function (err, others) {
-        if (err) return res.send(500, err);
-        res.render("index-logged", {
-          user: req.user,
-          others: others
-        });
+      res.render("index-logged", {
+        user: req.user,
+        others: result.users
       });
     });
   }
