@@ -20,9 +20,7 @@ html
 
        
         p Alternatively you can use the auth0 login button
-        a.auth0-button(href='https://' + namespace + '/login?client=' + clientID, 
-              data-theme='default', 
-              data-title='Example Application',
-              data-strategy-button-template="connect with {name}", 
-              data-all-button-template="show all") connect
-        script(src='https://' + namespace + '/sdk.js#client=' + clientID)
+
+        //- only works when deployed
+        a.auth0-button(href='https://jose.auth0.com/login?client=HjF3eg2TVH0pbsTgo0rKYnsftUL6UYIR') Sign In with Auth0
+        script(src='https://sdk.auth0.com/auth0.js#client=HjF3eg2TVH0pbsTgo0rKYnsftUL6UYIR')
