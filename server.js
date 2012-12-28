@@ -45,11 +45,11 @@ app.get('/', function (req, res) {
       });
     });
   } else {
-    auth0Client.getUsers(function (err, result) {
+    auth0Client.getUsers(function (err, users) {
       if (err) return res.send(500, err);
       res.render("index-logged", {
         user: req.user,
-        others: result.users
+        others: users
       });
     });
   }
