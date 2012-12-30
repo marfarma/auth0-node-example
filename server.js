@@ -42,7 +42,7 @@ app.get('/', function (req, res) {
       });
     });
   } else {
-    auth0Client.getUsers(function (err, users) {
+    auth0Client.getUsers({connection: req.user.identities[0].connection}, function (err, users) {
       if (err) return res.send(500, err);
       res.render("index-logged", {
         user: req.user,
