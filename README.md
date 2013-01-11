@@ -22,7 +22,7 @@ Or create your own set of credentials in [auth0](http://app.auth0.com)
 	AUTH0_DOMAIN="your auth0 domain" \
 	npm start
 
-## Running example in heroku
+## Running the example in heroku
 
 There is a running example in heroku here <http://frozen-dawn-4312.herokuapp.com/>.
 
