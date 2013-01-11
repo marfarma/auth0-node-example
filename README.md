@@ -1,7 +1,5 @@
 This is a node.js example application for the [auth0](http://auth0.com) platform.
 
-This example uses [passport.js](http://passportjs.org/) with the [passport-auth0](https://github.com/qraftlabs/passport-auth0) adapter.
-
 ## Install dependencies
 
 Install dependencies with:
