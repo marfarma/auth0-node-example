@@ -15,7 +15,7 @@ You can use these already created credentials:
 	AUTH0_DOMAIN=jose.auth0.com \
 	npm start
 
-Or create your own in [auth0](http://app.auth0.com)
+Or create your own set of credentials in [auth0](http://app.auth0.com)
 
 	AUTH0_CLIENT_ID="your client id" \
 	AUTH0_CLIENT_SECRET="your client secret" \
