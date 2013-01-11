@@ -35,6 +35,16 @@ You can deploy your own instance with your credentials and then configure as fol
 	AUTH0_DOMAIN="your auth0 domain" \
 	CALLBACK_URL="http://your-heroku-url.herokuapp.com/callback"
 
+## Documentation
+
+For more information about [auth0](http://auth0..com) contact our [documentation page](http://docs.auth0.com/).
+
+## Libraries from auth0
+
+This project uses two auth0 modules:
+
+-  [passport-auth0](https://github.com/qraftlabs/passport-auth0) a [passport.js](http://passportjs.org/) strategy to login users with auth0.
+-  [auth0](https://github.com/qraftlabs/passport-auth0) a client to consume the rest api of auth0. The api allows applications to create connections and query users and users directories.
 
 ## LICENSE
 
