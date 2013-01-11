@@ -34,3 +34,8 @@ You can deploy your own instance with your credentials and then configure as fol
 	AUTH0_CLIENT_SECRET="your client secret" \
 	AUTH0_DOMAIN="your auth0 domain" \
 	CALLBACK_URL="http://your-heroku-url.herokuapp.com/callback"
+
+
+## LICENSE
+
+MIT
