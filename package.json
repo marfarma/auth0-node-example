@@ -4,21 +4,19 @@
   "description": "Auth0 sample application",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "tstart": "clientId=CYEoK4Fr76OAtH8ycXxGYH2erVCM9o6U clientSecret='rJ0WDZJ7QEwaKWicz46tHVj861MTVH437vtJz_2Q-aob6DCt8kI0lFQ3rZg4cebk' namespace=tenny.auth0.com:3000 node server.js",
-    "debug": "clientId=CYEoK4Fr76OAtH8ycXxGYH2erVCM9o6U clientSecret='rJ0WDZJ7QEwaKWicz46tHVj861MTVH437vtJz_2Q-aob6DCt8kI0lFQ3rZg4cebk' namespace=tenny.auth0.com:3000 nodev server.js"
+    "start": "node server.js"
   },
   "repository": "",
   "author": "",
-  "license": "BSD",
+  "license": "MIT",
   "dependencies": {
     "passport": "~0.1.15",
     "passport-oauth": "~0.1.12",
     "jade": "~0.27.7",
     "express": "~3.0.3",
     "connect": "~2.7.0",
-    "passport-auth0": "~0.0.3",
-    "auth0": "~0.1.0"
+    "passport-auth0": "~0.0.5",
+    "auth0": "~0.1.2"
 
   },
   "engines": {

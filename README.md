@@ -10,22 +10,27 @@ Install dependencies with:
 
 ## Run 
 
-First create an account in [auth0](http://auth0.com) and create an application with the url of this application plus the callback, for instance <http://localhost:9988/callback>
+You can use these already created credentials:
 
-In order to run this application you will need 3 environment variables shown in the settings panel of auth0:
+	AUTH0_CLIENT_ID=HjF3eg2TVH0pbsTgo0rKYnsftUL6UYIR \
+	AUTH0_CLIENT_SECRET=ci8DLzp3XTpqi3q5BIvf9vNnhill1AqmnESFar2xCmkw1TBH+zULawkDxjctMLFa \
+	AUTH0_DOMAIN=jose.auth0.com \
+	npm start
 
--   clientId
--   clientSecret
--	namespace
+Or create your own in [auth0](http://app.auth0.com)
 
-You can run the application as follows: 
-
-	clientId=<your clientid> \
-	clientSecret=<your clientsecret> \ 
-	namespace=<your namespace> \
-	connections=<a connection> \
-	node server.js
+	AUTH0_CLIENT_ID=HjF3eg2TVH0pbsTgo0rKYnsftUL6UYIR \
+	AUTH0_CLIENT_SECRET=ci8DLzp3XTpqi3q5BIvf9vNnhill1AqmnESFar2xCmkw1TBH+zULawkDxjctMLFa \
+	AUTH0_DOMAIN=jose.auth0.com \
+	npm start
 
 ## Running example in heroku
 
-There is a running example in heroku here <http://frozen-dawn-4312.herokuapp.com/>
+There is a running example in heroku here <http://frozen-dawn-4312.herokuapp.com/>.
+
+You can deploy your own instance with your credentials and then configure as follows:
+
+	heroku config:set AUTH0_CLIENT_ID="your client id" \
+	AUTH0_CLIENT_SECRET="your client secret" \
+	AUTH0_DOMAIN="your auth0 domain" \
+	CALLBACK_URL="http://your-heroku-url.herokuapp.com/callback"
