@@ -19,9 +19,9 @@ You can use these already created credentials:
 
 Or create your own in [auth0](http://app.auth0.com)
 
-	AUTH0_CLIENT_ID=HjF3eg2TVH0pbsTgo0rKYnsftUL6UYIR \
-	AUTH0_CLIENT_SECRET=ci8DLzp3XTpqi3q5BIvf9vNnhill1AqmnESFar2xCmkw1TBH+zULawkDxjctMLFa \
-	AUTH0_DOMAIN=jose.auth0.com \
+	AUTH0_CLIENT_ID="your client id" \
+	AUTH0_CLIENT_SECRET="your client secret" \
+	AUTH0_DOMAIN="your auth0 domain" \
 	npm start
 
 ## Running example in heroku
